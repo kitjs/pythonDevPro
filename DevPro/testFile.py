@@ -1,18 +1,24 @@
 import pytest
 import main as m
+import test_values as testValue
 
 
 # positive test for receiving all products list
 def tests_1():
-    assert m.get_list_and_return_list_of_products() == "Here is a list of products: \n['Pizza', 'Sushi', 'Burger', 'Pad Thai']"
+    assert m.get_list_and_return_list_of_products() == testValue.value_full_list
 
 
 # positive test for receiving products list with defined threshold
-def tests_2():
-    assert m.get_list_and_return_list_of_products_with_price(
-        13.00) == "Here is a list of products the price is more than 13.0: \n['Sushi', 'Pad Thai']"
+def tests_check_boundary_value_above():
+    assert m.get_list_and_return_list_of_products_with_price_higher_than(
+        13.00) == testValue.value_boundary_above
 
 
-def tests_3():
-    assert m.get_list_and_return_list_of_products_with_price(
-        1.00) == "Here is a list of products the price is more than 1.0: \n['Pizza', 'Sushi', 'Burger', 'Pad Thai']"
+def test_positive():
+    assert m.get_list_and_return_list_of_products_with_price_higher_than(
+        12.99) == testValue.value_positive
+
+
+def tests_check_boundary_value_under():
+    assert m.get_list_and_return_list_of_products_with_price_higher_than(
+        12.98) == testValue.value_boundary_under

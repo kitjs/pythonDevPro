@@ -19,7 +19,7 @@ get_list_and_return_list_of_products()
 # 2. Write a function that takes the JSON data as
 # input and a price threshold, and returns a list of
 # products which price is greater than or equal to the threshold.
-def get_list_and_return_list_of_products_with_price(price):
+def get_list_and_return_list_of_products_with_price_higher_than(price):
     with open("fileWithText.json", "rt") as file:
         dict_products = json.load(file)
         list_products = []
@@ -30,4 +30,4 @@ def get_list_and_return_list_of_products_with_price(price):
         return f"Here is a list of products the price is more than {price}: \n{list_products}"
 
 
-get_list_and_return_list_of_products_with_price(1)
+get_list_and_return_list_of_products_with_price_higher_than(1)
